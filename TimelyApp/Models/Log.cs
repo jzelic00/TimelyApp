@@ -19,7 +19,8 @@ namespace TimelyApp.Models
         public string StartTime { get; set; }
         [Required]
         public string EndTime{ get; set; }
-      
-       
+        
+        [Required]
+        public string Duration { get; set; }
     }
 }

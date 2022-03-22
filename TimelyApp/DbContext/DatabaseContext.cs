@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TimelyApp.Models;
+using TimelyApp.SeedData;
 
 namespace TimelyApp.Models
 {
@@ -19,7 +20,7 @@ namespace TimelyApp.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);
         }
     }

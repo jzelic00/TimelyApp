@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "getTest";
+    Layout = null;
+}
+
+  <link rel="stylesheet" href="~/css/Popup.css" />
+
+<div class="col-12 border p-3 mt-3">
+   
+    <table class="table table-striped border">
+        
+        <tr class="table-secondary">
+            <th>
+                <label>Project</label>
+            </th>
+            <th>
+                <label>Start</label>
+            </th>
+            <th>
+                <label>Stop</label>
+            </th>
+           
+            <th>
+                <label>Duration</label>
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        <tr ng-repeat="log in logs">
+            
+            <td>
+                {{log.ProjectName}}
+            </td>
+            <td>
+                {{log.StartTime}}
+            </td>
+            <td>
+                {{log.EndTime}}
+            </td>
+            <td>
+                {{log.Duration}}
+            </td>
+           <td>
+
+           </td>
+            <td>
+                <button ng-click="DeleteLog(log)" class="btn btn-danger btn-sm">Delete</button>               
+                <md-button ng-if="log.ProjectName!==''" class="btn btn-success btn-sm" ng-click="showPrompt($event,log)"> Edit</md-button>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+<md-button ng-click="showPrompt($event)">
+      Prompt Dialog
+    </md-button>
+

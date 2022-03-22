@@ -2,7 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-info">Timely application</h2>
+        </div>
+        <div class="wrapper">
+            <a href="#!/startTimer" class="button btn">Start</a>
+        </div>
+       
+    </div>
+    <div ng-view></div>
 </div>
+@section Scripts{
+    <script src="~/js/Scripts/Controller/HomeController.js"></script>
+    <script src="~/js/Scripts/Controller/AddLogController.js"></script>
+    <script src="~/js/Scripts/Service/HttpRequestServices.js"></script>   
+}
