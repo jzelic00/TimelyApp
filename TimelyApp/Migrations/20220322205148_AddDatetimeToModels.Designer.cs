@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TimelyApp.Models;
 
 namespace TimelyApp.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220322205148_AddDatetimeToModels")]
+    partial class AddDatetimeToModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,16 +44,6 @@ namespace TimelyApp.Migrations
                     b.HasKey("LogID");
 
                     b.ToTable("Log");
-
-                    b.HasData(
-                        new
-                        {
-                            LogID = 1,
-                            Duration = 1234,
-                            EndTime = new DateTime(2022, 3, 23, 23, 33, 59, 735, DateTimeKind.Utc).AddTicks(4897),
-                            ProjectName = "test",
-                            StartTime = new DateTime(2022, 3, 23, 23, 33, 59, 735, DateTimeKind.Utc).AddTicks(4675)
-                        });
                 });
 #pragma warning restore 612, 618
         }

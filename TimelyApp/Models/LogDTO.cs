@@ -11,11 +11,10 @@ namespace TimelyApp.Models
         [Required]
         public string ProjectName { get; set; }
         [Required]
-        public string StartTime { get; set; }
+        public DateTime StartTime { get; set; }
         [Required]
-        public string EndTime { get; set; }
-
-        
-        public string Duration { get; set; }
+        public DateTime EndTime { get; set; }
+        [Required]
+        public int Duration { get; set; }
     }
 }

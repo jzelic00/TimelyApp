@@ -8,22 +8,19 @@ using TimelyApp.Services.Interfaces;
 
 namespace TimelyApp.Controllers
 {
-    public class AddLogController : Controller
+    public class AddController : Controller
     {
         private readonly IService _service;
 
-        public AddLogController(IService service)
+        public AddController(IService service)
         {
             _service = service;
         }
 
-        [Route("AddLogController/AddLog")]
+        [Route("AddLog/AddLog")]
         [HttpPost]
         public async Task<ActionResult> AddNewContact([FromBody] LogDTO newLog)
-        {
-            if (newLog == null)
-                return BadRequest();
-
+        {           
             try
             {
                 await _service.addNewLogAsync(newLog);
@@ -32,14 +29,8 @@ namespace TimelyApp.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
             return Ok();
         }
-
-        [Route("AddLog/AddLogPartialView")]
-        public PartialViewResult AddLogPartialView()
-        {
-            return PartialView();
-        }
+       
     }
 }

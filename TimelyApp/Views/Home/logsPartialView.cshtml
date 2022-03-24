@@ -3,11 +3,14 @@
     Layout = null;
 }
 
-  <link rel="stylesheet" href="~/css/Popup.css" />
+ <link rel="stylesheet" href="~/css/Popup.css" />
+ 
+<div class="wrapper">
+     <button ng-controller="AddLogController" ng-click="showPrompt($event); addNewLogOnClick()" class="btn btn-sm ">{{button}}</button>
+</div>
 
 <div class="col-12 border p-3 mt-3">
-   
-    <table class="table table-striped border">
+    <table class="table table-striped border" id="logTable">
         
         <tr class="table-secondary">
             <th>
@@ -18,44 +21,39 @@
             </th>
             <th>
                 <label>Stop</label>
-            </th>
-           
+            </th>          
             <th>
                 <label>Duration</label>
             </th>
             <th>
+             </th>                                                                                                                 
 
+                                                                                                  
+            <th>
+                <button ng-click="Export()" class="btn btn-info btn-sm">Export</button>               
             </th>
         </tr>
-
         <tr ng-repeat="log in logs">
             
             <td>
                 {{log.ProjectName}}
             </td>
             <td>
-                {{log.StartTime}}
+                {{log.StartTime |date:'y.MM.dd hh:mm:ss'}}
             </td>
             <td>
-                {{log.EndTime}}
+                {{log.EndTime|date:' y.MM.dd hh:mm:ss'}}
             </td>
             <td>
-                {{log.Duration}}
+                {{log.Duration| date:'HH:mm:ss' : 'UTC'}}
             </td>
            <td>
-
            </td>
             <td>
                 <button ng-click="DeleteLog(log)" class="btn btn-danger btn-sm">Delete</button>               
-                <md-button ng-if="log.ProjectName!==''" class="btn btn-success btn-sm" ng-click="showPrompt($event,log)"> Edit</md-button>
+                <button ng-controller="EditLogController" ng-if="log.ProjectName!==''" class="btn btn-success btn-sm" ng-click="showPrompt($event,log)"> Edit</button>
             </td>
         </tr>
-
     </table>
-
 </div>
-
-<md-button ng-click="showPrompt($event)">
-      Prompt Dialog
-    </md-button>
 

@@ -13,7 +13,7 @@ namespace TimelyApp.Models
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
-
+                                
         }
       
         public DbSet<Log> Log { get; set; }

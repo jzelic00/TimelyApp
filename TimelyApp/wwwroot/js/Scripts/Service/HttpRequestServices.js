@@ -6,39 +6,31 @@
             method: 'GET',
             url: '/Home/GetAllLogs'
         });
-    }
-    
-    //get single log data
-    this.getSingleLog = function (id) {
-        return $http.get("EditContact/GetLog", { params: { id: id } });
-    }
+    }  
 
     //post new log
     this.addLog = function (log) {
        
         return $http({
             method: "post",
-            url: "/LogContactController/AddLog",
+            url: "AddLog/AddLog",
             dataType: 'json',
             data: log
         });
     }
 
     //put new info
-    this.editContact = function (log, id) {
+    this.editLog = function (log) {
 
         return $http({
             method: "put",
-            url: "EditLog/EditLog/" + id,
+            url: "Edit/EditLog/",
             data: log
         });
     }
 
     //delete contact
     this.deleteMethod = function (logId) {
-
         return $http.delete('Home/delete', { params: { logId: logId } });
-
     };
-
 });
