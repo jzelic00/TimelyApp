@@ -16,5 +16,6 @@ namespace TimelyApp.Repository
     
         Task<IEnumerable<Log>> getAllAsync();
         Task SaveAsync();
+   
     }
 }

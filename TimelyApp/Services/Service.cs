@@ -12,19 +12,15 @@ namespace TimelyApp.Services
     public class Service : IService
     {
         private readonly ILogRepositoryAsync _logRepository;
-        private readonly IMapper _mapper;
-        public Service( ILogRepositoryAsync LogRepository
-                       , IMapper mapper)
-        {
-            _mapper = mapper;
+        
+        public Service( ILogRepositoryAsync LogRepository)
+        {           
             _logRepository = LogRepository;
         }
 
-        public async Task addNewLogAsync(LogDTO newLog)
-        {
-            Log _newLog = _mapper.Map<Log>(newLog);
-
-            await _logRepository.addNewLogAsync(_newLog);
+        public async Task addNewLogAsync(Log newLog)
+        {           
+            await _logRepository.addNewLogAsync(newLog);
 
             await _logRepository.SaveAsync();
         }

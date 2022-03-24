@@ -1,18 +1,24 @@
-﻿app.controller('HomeController', function ($scope, $filter, httpRequestServices) {
+﻿app.controller('HomeController', function ($scope, $location, $filter, httpRequestServices) {
 
     $scope.button = 'Stop';
     $scope.logs = [];
     $scope.buttonFlag = true;   
+    $scope.disableIndexButton =false;
 
-    $scope.buttonIndex = " ";
+    //dont show start button from index page
+    if ($location.absUrl().indexOf('#!/startTimer') !== -1) {
+        $scope.disableIndexButton = true;       
+    }
 
+    
     let newLog = {
         ProjectName: "",
         StartTime: new Date(),
         EndTime: "",
         Duration: ""
     };
-    
+
+    //get all logs
     var getAllLogsPromise = httpRequestServices.getAllLogs();
 
     getAllLogsPromise.then(function (response) {
@@ -20,8 +26,8 @@
         console.log($scope.logs);
         $scope.logs.unshift(newLog);
     },
-        function (error) {
-             alert("Pogreška kod dohvaćanja svih kontakata " + error.statusText);
+      function (error) {
+         alert("Pogreška kod dohvaćanja svih kontakata " + error.statusText);
     });
     
     //deleting choosen contact

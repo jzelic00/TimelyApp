@@ -11,7 +11,7 @@ namespace TimelyApp.Services.Interfaces
         //update log
         Task editLog(Log Log);
         //Add log
-        Task addNewLogAsync(LogDTO newLog);
+        Task addNewLogAsync(Log newLog);
         //delete Log
         Task deleteLog(int? LogId);
         //get all Logs

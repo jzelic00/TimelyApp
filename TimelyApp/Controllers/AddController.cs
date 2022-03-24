@@ -19,7 +19,7 @@ namespace TimelyApp.Controllers
 
         [Route("AddLog/AddLog")]
         [HttpPost]
-        public async Task<ActionResult> AddNewContact([FromBody] LogDTO newLog)
+        public async Task<ActionResult> AddNewContact([FromBody] Log newLog)
         {           
             try
             {
@@ -29,8 +29,7 @@ namespace TimelyApp.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            return Ok();
-        }
-       
+            return Ok(newLog.LogID);
+        }      
     }
 }

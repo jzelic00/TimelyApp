@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TimelyApp.Mapper;
+
 using TimelyApp.Models;
 using TimelyApp.Repository;
 using TimelyApp.Services;
@@ -58,18 +58,10 @@ namespace TimelyApp
             services.AddDbContext<DatabaseContext>(ServiceLifetime.Transient);
 
             services.AddRazorPages();
-            services.AddRazorPages().AddRazorRuntimeCompilation();
-
-            var mapperConfig = new MapperConfiguration(mc =>
-            {
-                mc.AddProfile(new ProfileMapper());
-            });
-
-            IMapper mapper = mapperConfig.CreateMapper();
-
+            services.AddRazorPages().AddRazorRuntimeCompilation();            
+          
             //DI services
-            services.AddSingleton(mapper);
-
+            
             services.AddScoped<ILogRepositoryAsync, LogRepository>();
             services.AddScoped<IService, Service>();
         }

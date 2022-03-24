@@ -50,8 +50,9 @@ $scope.showPrompt = function (ev) {
 
         addLogPromise.
             then(function succesCallback(response) {
+             
+                log.LogID = response.data;
                 console.log(response.data);
-                
                 alert("Log uspješno dodan");             
             }
             ,function errorCallback(error) {

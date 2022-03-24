@@ -7,8 +7,8 @@
         <div class="col-6">
             <h2 class="text-info">Timely application</h2>
         </div>
-        <div class="wrapper">
-            <a href="#!/startTimer" onclick="this.style.visibility = 'hidden'" ng-init="buttonIndex='Start'" class="button btn">{{buttonIndex}}</a>
+        <div class="wrapper" ng-controller="HomeController" ng-hide="disableIndexButton" >
+            <a href="#!/startTimer"  onclick="this.style.visibility = 'hidden'" class="button btn">Start</a>
         </div>      
     </div>
     <div ng-view></div>

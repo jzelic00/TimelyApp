@@ -39,6 +39,7 @@ namespace TimelyApp.Repository
             return await _db.Log.AsNoTracking().Where(p => p.LogID == id)
                                                    .FirstOrDefaultAsync();
         }
+    
 
         public void updateLogInformation(Log Log)
         {
@@ -48,6 +49,6 @@ namespace TimelyApp.Repository
         public async Task SaveAsync()
         {
             await _db.SaveChangesAsync();
-        }
+        }       
     }
 }
